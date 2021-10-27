@@ -14,6 +14,7 @@ import openpyxl
 
 '''
 Instructions    :1、在控制台输入日志的绝对路径即可；
+                 2、生成的excel结果在脚本所在的目录；
 TODO            :1、自动生成散点图；
 '''
 
