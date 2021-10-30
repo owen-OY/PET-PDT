@@ -2,7 +2,7 @@
 
 # @Author       : xuanye.wang
 # @Date         : 2021/10/29 22:14
-# @File         : code_批量删除小于3S的音频视频文件.py
+# @File         : code_批量删除小于自定义时长的音频视频文件.py
 '''
 @Mark:          :1、该脚本只能删除音频视频文件；
                  2、输入需要目录路径即可；
@@ -19,7 +19,7 @@ def deleteFile(path):
             musicPath = rf'{path}{file}'
             time.sleep(0.2)
             mp3Info = eyed3.load(musicPath).info.time_secs
-            if mp3Info < 3:
+            if mp3Info < 3: # 3S
                 logger.info('正在删除文件--%s' % musicPath)
                 os.remove(musicPath)
 
