@@ -51,7 +51,10 @@ def checkRemove(path):
             for i in range(len(chongfu)-1): # 删除md5重复的文件，保留一个
                 rmf = path + chongfu[i]
                 logger.info(rmf)
-                os.remove(f'{rmf}')
+                try:
+                    os.remove(f'{rmf}')
+                except:
+                    logger.info('删除文件失败！')
 
 
 if __name__ == '__main__':
