@@ -44,7 +44,7 @@ class GetMp3(object):
             responce.encoding = 'utf-8' # 防止输出的网页代码出现中文乱码；
             soundLinkAfter1 = re.findall('<audio preload="none" src="(.*?)"></audio>', responce.text)
             soundLinkAfterList1.extend(soundLinkAfter1) # 已取出当前页面的所有音频下载链接
-            for j in range(30):
+            for j in range(20):
                 videoUrl = 'https:' + f'{soundLinkAfterList1[j]}'
                 filename = datetime.datetime.now().strftime('%Y-%m-%d %H-%M-%S')
                 res = requests.get(videoUrl, stream=True, timeout=60)
