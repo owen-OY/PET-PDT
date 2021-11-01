@@ -19,7 +19,7 @@ def get_sound_time(log_file):
         if line.find('sound confidence') != -1:
             times = re.search(r"(\d{1,4}-\d{1,2}-\d{1,2} \d{1,2}:\d{1,2}:\d{1,2})", line)
             times = re_none(times, 1)
-            times = int(time.mktime(time.strptime(times, "%Y-%m-%d %H:%M:%S")))
+            times = int(time.mktime(time.strptime(times, "%y-%m-%d %H:%M:%S")))
             times_list.append(times)
     return times_list
     # workbook = xlwt.Workbook(encoding='utf-8')
