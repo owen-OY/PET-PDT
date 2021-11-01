@@ -160,8 +160,12 @@ def count_data():
 
     #固件bug解决率
     Gintersolved = list(set(solvedindex_list).intersection(set(gujianindex_list)))
-    gujiansolved_rate =len(Gintersolved)/len(gujianindex_list)
-    gujiansolved_rate = '%.2f%%' % (gujiansolved_rate * 100)
+    if len(gujianindex_list) == 0:
+        gujiansolved_rate = 1
+        gujiansolved_rate = '%.2f%%' % (gujiansolved_rate * 100)
+    else:
+        gujiansolved_rate =len(Gintersolved)/len(gujianindex_list)
+        gujiansolved_rate = '%.2f%%' % (gujiansolved_rate * 100)
 
     #固件P0bug解决率
     GintersolvedP0 = list(set(P0index_list).intersection(set(Gintersolved)))
@@ -185,14 +189,22 @@ def count_data():
 
     #Androidbug解决率
     Aintersolved = list(set(solvedindex_list).intersection(set(Androidindex_list)))
-    Androidsolved_rate =len(Aintersolved)/len(Androidindex_list)
-    Androidsolved_rate = '%.2f%%' % (Androidsolved_rate * 100)
+    if len(Androidindex_list) == 0:
+        Androidsolved_rate = 1
+        Androidsolved_rate = '%.2f%%' % (Androidsolved_rate * 100)
+    else:
+        Androidsolved_rate =len(Aintersolved)/len(Androidindex_list)
+        Androidsolved_rate = '%.2f%%' % (Androidsolved_rate * 100)
 
     #AndroidP0bug解决率
     AintersolvedP0 = list(set(P0index_list).intersection(set(Aintersolved)))
     AinterP0 = list(set(P0index_list).intersection(set(Androidindex_list)))
-    Androidsolved_rateP0 =len(AintersolvedP0)/(len(AinterP0))
-    Androidsolved_rateP0 = '%.2f%%' % (Androidsolved_rateP0 * 100)
+    if len(AinterP0) == 0:
+        Androidsolved_rateP0 = 1
+        Androidsolved_rateP0 = '%.2f%%' % (Androidsolved_rateP0 * 100)
+    else:
+        Androidsolved_rateP0 =len(AintersolvedP0)/(len(AinterP0))
+        Androidsolved_rateP0 = '%.2f%%' % (Androidsolved_rateP0 * 100)
 
 
     # -----------------------------------IOS------------------------------------------
@@ -210,8 +222,12 @@ def count_data():
 
     #iOSbug解决率
     Iintersolved = list(set(solvedindex_list).intersection(set(iosindex_list)))
-    iossolved_rate =len(Iintersolved)/len(iosindex_list)
-    iossolved_rate = '%.2f%%' % (iossolved_rate * 100)
+    if len(iosindex_list) == 0:
+        iossolved_rate = 1
+        iossolved_rate = '%.2f%%' % (iossolved_rate * 100)
+    else:
+        iossolved_rate =len(Iintersolved)/len(iosindex_list)
+        iossolved_rate = '%.2f%%' % (iossolved_rate * 100)
 
     #iOSP0bug解决率
     IintersolvedP0 = list(set(P0index_list).intersection(set(Iintersolved)))
@@ -233,5 +249,3 @@ def count_data():
 if __name__ == '__main__':
     change_xlsx(get_filepath())
     count_data()
-
-    
